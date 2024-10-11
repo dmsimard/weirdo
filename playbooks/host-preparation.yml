@@ -14,7 +14,7 @@
 #   under the License.
 #
 
-# firewalld and networkmanager come installed by default on CentOS servers and
+# firewalld come installed by default on CentOS servers and
 # can interfere with networking. Ensure they are not in use.
 - name: Stop and remove firewalld and networkmanager
   hosts: openstack_nodes
@@ -41,7 +41,6 @@
         state: "stopped"
       with_items:
         - firewalld
-        - NetworkManager
       ignore_errors: "yes"
       register: stopped_services
 
@@ -51,7 +50,6 @@
         state: "absent"
       with_items:
         - firewalld
-        - NetworkManager
       ignore_errors: "yes"
 
     - name: Restart networking
