@@ -19,21 +19,10 @@
 - name: Stop and remove firewalld and networkmanager
   hosts: openstack_nodes
   tasks:
-    - name: Enable PowerTools repo on CentOS8
-      shell: "sudo dnf config-manager --enable powertools || sudo dnf config-manager --enable PowerTools"
-      when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "8"
-      changed_when: False
-
     - name: Enable CRB repo on CentOS9
       shell: "sudo dnf config-manager --enable crb"
       when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "9"
       changed_when: False
-
-    - name: Ensure network-scripts installed in CentOS8 as we removing NetworkManager
-      package:
-        name: "network-scripts"
-        state: "present"
-      when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "8"
 
     - name: Stop services
       service:
@@ -51,14 +40,6 @@
       with_items:
         - firewalld
       ignore_errors: "yes"
-
-    - name: Restart networking
-      service:
-        name: "network"
-        state: "restarted"
-      when:
-        - stopped_services is succeeded
-        - ansible_distribution == "CentOS" and ansible_distribution_major_version == "8"
 
 # Ensure tuned is installed and that we're using an optimal profile
 # ... We're not interested in power savings
