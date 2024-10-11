@@ -22,6 +22,30 @@
       },
       "revId": "0eb5274bfac625c8b11aef4112806260cfddce3c",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43fec785_fec28f78",
+        "filename": "playbooks/host-preparation.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2024-10-11T12:31:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b74ac219_d01a3172",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 52
+      },
+      "revId": "0eb5274bfac625c8b11aef4112806260cfddce3c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
