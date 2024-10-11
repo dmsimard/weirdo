@@ -41,7 +41,6 @@
         state: "stopped"
       with_items:
         - firewalld
-        - NetworkManager
       ignore_errors: "yes"
       register: stopped_services
 
@@ -51,7 +50,6 @@
         state: "absent"
       with_items:
         - firewalld
-        - NetworkManager
       ignore_errors: "yes"
 
     - name: Restart networking
